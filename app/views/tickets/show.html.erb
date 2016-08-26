@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Ticket -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Ticket %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ticket.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @ticket.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:entries) %></dt>
+      <dd><pre class="prettyprint"><%= @ticket.entries %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:valid_until) %></dt>
+      <dd><pre class="prettyprint"><%= @ticket.valid_until %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:unlimited) %></dt>
+      <dd><pre class="prettyprint"><%= @ticket.unlimited %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Entries:</strong>
-  <%= @ticket.entries %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              tickets_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_ticket_path(@ticket), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              ticket_path(@ticket),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Valid until:</strong>
-  <%= @ticket.valid_until %>
-</p>
-
-<p>
-  <strong>Unlimited:</strong>
-  <%= @ticket.unlimited %>
-</p>
-
-<p>
-  <strong>Student:</strong>
-  <%= @ticket.student %>
-</p>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
