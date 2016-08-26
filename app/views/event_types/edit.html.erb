@@ -1,6 +1,5 @@
-<h1>Editing event_type</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @event_type %> |
-<%= link_to 'Back', event_types_path %>
+<%- model_class = EventType -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => EventType %></h1>
+</div>
+<%= render :partial => 'form' %>
