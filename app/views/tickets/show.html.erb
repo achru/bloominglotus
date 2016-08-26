@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ticket.name %>
+</p>
+
+<p>
+  <strong>Entries:</strong>
+  <%= @ticket.entries %>
+</p>
+
+<p>
+  <strong>Valid until:</strong>
+  <%= @ticket.valid_until %>
+</p>
+
+<p>
+  <strong>Unlimited:</strong>
+  <%= @ticket.unlimited %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @ticket.student %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>
